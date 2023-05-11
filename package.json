@@ -1,0 +1,24 @@
+{
+  "name": "event",
+  "version": "1.0.0",
+  "description": "this is testing Loop",
+  "main": "Event.js",
+  "scripts": {
+    "start": "node Event.js",
+    "dev": "nodemon Event.js",
+    "train": "nodemon train.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MIT4",
+  "license": "MIT",
+  "dependencies": {
+    "modules": "^0.4.0",
+    "moment": "^2.29.4",
+    "node": "^20.1.0",
+    "node-schedule": "2.1.0",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "chalk": "^5.2.0"
+  }
+}
