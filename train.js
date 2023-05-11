@@ -80,19 +80,16 @@ console.log("passed here 1");
 //   else if (a > 50 && a <= 60) return list[4];
 //   else {
 //     return new Promise((resolve, reject) => {
-//       setInterval(() => {
+//       setTimeout(() => {
 //         resolve(list[5]);
 //       }, 5000);
 //     });
-// setTimeout(function () {
-// return list[5];
-//  }, 5000);
-// }
+//   }
 // }
 
-// CALL VIA then /catch
+// ////CALL VIA then /catch
 // console.log("passsed here 0");
-// maslahatBering(25)
+// maslahatBering(65)
 //   .then((data) => {
 //     console.log("javob:", data);
 //   })
@@ -101,13 +98,13 @@ console.log("passed here 1");
 //   });
 // console.log("passed here 1");
 
-// CALL VIA asyn/await
-// async function run() {
-//   let javob = await maslahatBering(65);
-//   console.log(javob);
-// javob = await maslahatBering(31);
-// console.log(javob);
-// javob = await maslahatBering(41);
-// console.log(javob);
-// }
-// run();
+////CALL VIA asyn/await
+async function run() {
+  let javob = await maslahatBering(65);
+  console.log(javob);
+  javob = await maslahatBering(31);
+  console.log(javob);
+  javob = await maslahatBering(41);
+  console.log(javob);
+}
+run();
