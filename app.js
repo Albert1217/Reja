@@ -1,4 +1,25 @@
-////   9 NodeJS EVENT LOOP
+// 2: Session code
+
+// // 3 Views code
+// app.set("views", "views");
+// app.set("view engine", "ejs");
+
+// // 4 Routing code
+// app.post("/create-item", (req, res) => {
+//   //TODO: code with db here
+// });
+
+// app.get("/", function (req, res) {
+//   res.render("harid");
+// });
+
+// const server = http.createServer(app);
+// let PORT = 3000;
+// server.listen(PORT, function () {
+//   console.log(`The server is running successfully on port: ${PORT}`);
+//});
+
+// 10 ASYNCHRONOUS FUNCTIONLARNI QOLLASH/////
 
 // console.log("Web Serverni boshlash");
 // const express = require("express");
@@ -42,7 +63,7 @@
 //   console.log(`The server is running successfully on port: ${PORT}`);
 // });
 
-//// 10 ASYNCHRONOUS FUNCTIONLARNI QOLLASH/////
+//11 mongo_atlas
 
 // console.log("Web Serverni boshlash");
 // const express = require("express");
@@ -60,28 +81,34 @@
 //   }
 // });
 
-// // 1 Kirish code
-// app.use(express.static("public"));
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+//  MongoDB connect
 
-// // 2: Session code
+console.log("Web Serverni boshlash");
+const express = require("express");
+// const res = require("express/lib/response");
+const app = express();
 
-// // 3 Views code
-// app.set("views", "views");
-// app.set("view engine", "ejs");
+// MongoDB choqirish
+const db = require("./server").db();
 
-// // 4 Routing code
-// app.post("/create-item", (req, res) => {
-//   //TODO: code with db here
-// });
+// 1 Kirish code
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// app.get("/", function (req, res) {
-//   res.render("harid");
-// });
+// 2: Session code
 
-// const server = http.createServer(app);
-// let PORT = 3000;
-// server.listen(PORT, function () {
-//   console.log(`The server is running successfully on port: ${PORT}`);
-// });
+// 3 Views code
+app.set("views", "views");
+app.set("view engine", "ejs");
+
+// 4 Routing code
+app.post("/create-item", (req, res) => {
+  //TODO: code with db here
+});
+
+app.get("/", function (req, res) {
+  res.render("reja");
+});
+
+module.exports = app;
