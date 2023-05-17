@@ -34,3 +34,7 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
       console.log("Iltimos qaytadan haarakat qiling");
     });
 });
+
+document.addEventListener("click", function (e) {
+  console.log(e);
+});
