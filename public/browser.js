@@ -1,4 +1,4 @@
-const { response } = require("express");
+// const { response } = require("express");
 
 console.log("FrontEnd JS ishga tushdi");
 
