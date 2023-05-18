@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 console.log("FrontEnd JS ishga tushdi");
 
 function itemTemplate(item) {
@@ -31,10 +33,66 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
       createField.focus();
     })
     .catch((err) => {
-      console.log("Iltimos qaytadan haarakat qiling");
+      console.log("Iltimosytadan haarakat qiling!");
     });
 });
 
 document.addEventListener("click", function (e) {
-  console.log(e);
+  // delete oper
+  // console.log(e.target);
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("aniq ochirmoqchimisiz?")) {
+      axios
+        .post("/delete-item", { id: e.target.getAttribute("data-id") })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+          console.log("Iltimosytadan haarakat qiling!");
+        });
+    }
+  }
+
+  // edit oper
+  if (e.target.classList.contains("edit-me")) {
+    let userInput = prompt(
+      "Ozgartirish kiriting",
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if (userInput) {
+      axios
+        .post("/edit-item", {
+          id: e.target.getAttribute("data-id"),
+          new_input: userInput,
+        })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.querySelector(
+            ".item-text"
+          ).innerHTML = userInput;
+        })
+        .catch((err) => {
+          ("Iltimosytadan haarakat qiling!");
+        });
+    }
+  }
+});
+
+// document.getElementById("clean-all").addEventListener("click", function () {
+//   axios.post("/delete-all", { delete_all: true }).then((response) => {
+//     alert(response.data.state);
+//     document.location.reload();
+//   });
+// });
+document.getElementById("clean-all").addEventListener("click", () => {
+  axios
+    .post("/delete-all", { delete_all: true })
+    .then((response) => {
+      alert(response.data.state);
+      document.location.reload();
+    })
+    .catch((err) => {
+      console.log("Please try again!", err);
+    });
 });
