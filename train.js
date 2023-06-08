@@ -108,16 +108,31 @@
 //   console.log(javob);
 // }
 // run();
-function aniqlovchi(n) {
-  if (n <= 1) {
-    return false;
-  }
-  for (let i = 2; i <= Math.sqrt(n); i++) {
-    if (n % i === 0) {
-      return false;
-    }
-  }
-  return true;
+// function aniqlovchi(n) {
+//   if (n <= 1) {
+//     return false;
+//   }
+//   for (let i = 2; i <= Math.sqrt(n); i++) {
+//     if (n % i === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(aniqlovchi(8));
+
+// 📌  F-Task: Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi faqat digitlarni yangi stringda return qilsin!
+
+// 📩 New message from group :
+
+// 📌  Masalan: findDigits('ad5we34jkf89') return qilishi kerak bolgan qiymat '53489'
+
+function raqamlarnisaralash(str) {
+  let raqamlar = str.replace(/\D/g, "");
+  return raqamlar;
 }
 
-console.log(aniqlovchi(8));
+let input = "Ismoiljon1994";
+let result = raqamlarnisaralash(input);
+console.log(result);
